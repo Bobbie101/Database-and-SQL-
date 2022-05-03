@@ -1,0 +1,41 @@
+--Find the average of south West units 
+--SELECT year,
+   -- month,
+   -- west,
+   -- south,
+   -- (west + south)/2 AS south_west_avg
+   -- FROM tutorial.us_housing_units
+   
+   
+-- chain arithmetic functions, including both column names and actual numbers:
+--SELECT year,
+  -- month,
+    -- west,
+    --south,
+  -- west + south - 4 * year AS nonsense_column
+  --FROM tutorial.us_housing_units
+  
+  
+--Write a query that returns all rows for which more units were produced in the West region than in the Midwest and Northeast combined.
+ -- Select year,
+    -- month,
+       -- month_name,
+       -- northeast,
+       -- west,
+       -- midwest,
+      --south,
+    --west > (midwest + northeast)
+--From tutorial.us_housing_units
+
+--Write a query that calculates the percentage of all houses completed in the United States represented by each region. 
+--Only return results from the year 2000 and later. 
+
+Select year,
+       month,
+      west/(northeast + south + west + midwest) * 100 AS West_percentage,
+      northeast/(south + west + midwest + northeast) * 100 AS Northeast_percentage,
+      south/(northeast + south + west + midwest) * 100 AS South_Percentage,
+      midwest/(northeast + south + west + midwest) * 100 AS Midwest_Percentage
+  FROM tutorial.us_housing_units
+  WHERE year > 2000
+LIMIT 100
